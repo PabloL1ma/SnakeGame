@@ -10,7 +10,7 @@ const snake = [
     { x: 290, y: 200 }
 ]
 
-let direction
+let direction = "right"
 
 
 
@@ -26,7 +26,15 @@ const drawSnake = () => {
 }
 
 
+const moveSnake = () => {
+    const head = snake.at(-1)
+    snake.shift()
+    if (direction == "right")
+        snake.push({ x: head.x + size, y: head.y })
 
-
-
-drawSnake()
+}
+setInterval(() => {
+    moveSnake()
+    drawSnake()
+}, 300
+)
