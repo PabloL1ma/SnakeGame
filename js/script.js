@@ -27,14 +27,21 @@ const drawSnake = () => {
 
 
 const moveSnake = () => {
+
+if(!direction) return
+
     const head = snake.at(-1)
-    snake.shift()
-    if (direction == "right")
+    
+    if (direction == "right") {
         snake.push({ x: head.x + size, y: head.y })
+    }
+
+    snake.shift()
 
 }
 setInterval(() => {
+ctx.clearRect(0, 0, 600,600)
+
     moveSnake()
     drawSnake()
-}, 300
-)
+}, 300)
